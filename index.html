@@ -31,6 +31,9 @@
     <!-- Swiper.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
+    <!-- FontAwesome za ikone u Hero sekciji -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- AOS (Animate On Scroll) CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link class="rounded-full" rel="icon" type="image/jpeg" href="RoyalLogo.jpg">
@@ -63,6 +66,12 @@
             background-size: cover; 
             background-position: center; 
         }
+
+        /* Stil za vertikalno okretanje teksta društvenih mreža */
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body class="bg-black text-stone-300 antialiased selection:bg-stone-800 selection:text-gold">
@@ -93,8 +102,27 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section id="pocetna" class="h-screen flex items-center justify-center text-center hero-bg px-4">
-        <div class="max-w-5xl" data-aos="fade-up" data-aos-duration="1500">
+    <section id="pocetna" class="relative h-screen flex items-center justify-center text-center hero-bg px-4 overflow-hidden">
+        
+        <!-- LIJEVA BOČNA LINIJA (FACEBOOK) -->
+        <div class="absolute left-6 md:left-12 bottom-0 hidden sm:flex flex-col items-center gap-6 z-20" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+            <a href="https://www.facebook.com/kezicvizuali.vg" target="_blank" class="text-stone-500 hover:text-[#D4AF37] transition-colors duration-300 text-sm">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <span class="vertical-text text-[9px] tracking-[0.3em] text-stone-600 font-light select-none">FACEBOOK CONNECT</span>
+            <div class="w-[1px] h-24 bg-gradient-to-t from-transparent via-[#D4AF37]/30 to-stone-800"></div>
+        </div>
+
+        <!-- DESNA BOČNA LINIJA (INSTAGRAM) -->
+        <div class="absolute right-6 md:right-12 bottom-0 hidden sm:flex flex-col items-center gap-6 z-20" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
+            <a href="https://instagram.com/royalrideshr" target="_blank" class="text-stone-500 hover:text-[#D4AF37] transition-colors duration-300 text-sm">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <span class="vertical-text text-[9px] tracking-[0.3em] text-stone-600 font-light select-none">INSTAGRAM FEED</span>
+            <div class="w-[1px] h-24 bg-gradient-to-t from-transparent via-[#D4AF37]/30 to-stone-800"></div>
+        </div>
+
+        <div class="max-w-5xl z-10" data-aos="fade-up" data-aos-duration="1500">
             <span class="text-gold uppercase tracking-[0.4em] font-light text-xs block mb-6">CHAUFFEUR SERVICE &bull; PRIVATE FLOTA &bull; ČAKOVEC</span>
             <h1 class="text-4xl md:text-7xl font-medium text-white mb-8 leading-tight uppercase">
                 Kraljevski Tretman<br>
@@ -153,7 +181,7 @@
             
             <div class="h-[1px] w-20 bg-gold/30 mx-auto mt-14 mb-8"></div>
             <p class="text-gold uppercase tracking-[0.25em] text-xs font-medium font-cinzel">
-                Rolls-Royce je dostupan za najam za vjenčanja, svečanosti, evente i snimanja.
+                Rolls-Royce is available for rent for weddings, celebrations, events, and shootings.
             </p>
         </div>
     </section>
@@ -455,7 +483,7 @@
                 <div class="border border-gold/10 p-10 bg-zinc-950 text-center md:text-left" data-aos="fade-up" data-aos-delay="200">
                     <div class="text-gold font-serif italic text-3xl mb-6 font-bodoni">II</div>
                     <h3 class="text-xl font-medium text-white mb-4 uppercase tracking-wide">Kristal i Pjenušac</h3>
-                    <p class="text-stone-400 text-xs font-light leading-relaxed tracking-wide">Svako putovanje mladenaca otvaramo bocom vrhunskog, savršeno rashlađenog šampanjca kako biste dostojanstveno proslavili prve trenutke braka. Pjenušac se poslužuje u kristalnim čašama, a naš vozač će se pobrinuti za svečani doček.</p>
+                    <p class="text-stone-400 text-xs font-light leading-relaxed tracking-wide">Svako putovanje mladenaca otvaramo bocom vrhunskog, savršeno rashlađenog šampanjca kako biste dostojanstveno proslavili prve trenutke braka. Pjenušac se poslužuje u kristalnim čašama, a naš vozač će se pobrinuti for the festive welcome.</p>
                 </div>
                 <div class="border border-gold/10 p-10 bg-zinc-950 text-center md:text-left" data-aos="fade-up" data-aos-delay="300">
                     <div class="text-gold font-serif italic text-3xl mb-6 font-bodoni">III</div>
