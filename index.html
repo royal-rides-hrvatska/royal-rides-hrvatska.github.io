@@ -3,535 +3,646 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerija ArtS | Nataša Stević – Umjetnost s Romanije</title>
-    <meta name="description" content="Službeni portfolio akademske slikarice i ilustratorice Nataše Stević. Otkrijte bajkovite ilustracije, monumentalne murale i priču iz šumskog ateljea na Romaniji.">
+    <title>Royal Rides Hrvatska | Elitna Auto Kolekcija & Asistencija Čakovec</title>
+    <meta name="description" content="Ekskluzivni najam luksuznih oldtimera (Rolls-Royce, Bentley) s vozačem i brza vučna služba 0-24 u Čakovcu i Međimurju. Nazovite za kraljevski tretman.">
+    <meta name="keywords" content="royal rides hrvatska, vucna sluzba cakovec, najam limuzina medimurje, rolls royce vjencanja, pomoc na cesti cakovec">
     <meta name="author" content="Kezić Vizuali">
     
-    <!-- Open Graph / Facebook / Instagram -->
+    <!-- Open Graph / Facebook / WhatsApp (Slikica i tekst kod dijeljenja linka) -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://galerija-arts.github.io/">
-    <meta property="og:title" content="Galerija ArtS | Nataša Stević">
-    <meta property="og:description" content="Umjetnost inspirirana prirodom, tišinom planine i djetetom u nama.">
-    <meta property="og:image" content="slika10.jpg">
+    <meta property="og:url" content="https://royal-rides-hrvatska.github.io/">
+    <meta property="og:title" content="Royal Rides Hrvatska | Elitna Auto Kolekcija & Asistencija">
+    <meta property="og:description" content="Ekskluzivni najam muzejskih primjeraka Rolls-Royce i Bentley vozila s vozačem u Hrvatskoj.">
+    <meta property="og:image" content="https://royal-rides-hrvatska.github.io/auto-8.jpg">
 
-    <!-- Google Fonts: Playfair Display i Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://royal-rides-hrvatska.github.io/">
+    <meta property="twitter:title" content="Royal Rides Hrvatska | Elitna Auto Kolekcija & Asistencija">
+    <meta property="twitter:description" content="Ekskluzivni najam muzejskih primjeraka Rolls-Royce i Bentley vozila s vozačem u Hrvatskoj.">
+    <meta property="twitter:image" content="https://royal-rides-hrvatska.github.io/auto-8.jpg">
+
+    <!-- Google Fonts: Vrhunska elegancija (Cinzel, Bodoni Moda & Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Bodoni+Moda:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Swiper.js CSS za 3D slajd galeriju -->
+    <!-- Swiper.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
-    <!-- FontAwesome za ikone -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- AOS (Animate On Scroll) CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+    <link class="rounded-full" rel="icon" type="image/jpeg" href="RoyalLogo.jpg">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #FDFBF7; color: #2C2A29; }
-        h1, h2, .font-serif-art { font-family: 'Playfair Display', serif; }
+        body { font-family: 'Inter', sans-serif; letter-spacing: 0.03em; background-color: #000000; }
+        h1, h2, .font-cinzel { font-family: 'Cinzel', serif; letter-spacing: 0.08em; }
+        h3, h4, .font-bodoni { font-family: 'Bodoni Moda', serif; }
         
-        /* ISKLJUČIVANJE ADAPTERA KURZORA NA DESKTOPU ZA CUSTOM DOŽIVLJAJ */
+        .text-gold { color: #D4AF37; }
+        .bg-gold { background-color: #D4AF37; }
+        .border-gold { border-color: rgba(212, 175, 55, 0.2); }
+        
+        /* Sakrivanje običnog miša na računalima za custom kursor */
         @media (min-width: 1024px) {
-            body, a, button, .swiper-slide {
-                cursor: none !important;
-            }
-        }
-
-        /* CUSTOM LUKSUZNI KURSOR */
-        .custom-cursor-dot {
-            width: 6px;
-            height: 6px;
-            background-color: #2C2A29;
-            position: fixed;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-        }
-        .custom-cursor-aura {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            background-color: rgba(212, 175, 55, 0.02);
-            position: fixed;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-            transform: translate(-25px, -25px);
-            transition: transform 0.08s cubic-bezier(0.25, 1, 0.5, 1), width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
-        }
-
-        /* Kursor efekt kod hoveranja premium elemenata */
-        .custom-cursor-hover .custom-cursor-aura {
-            width: 65px;
-            height: 65px;
-            background-color: rgba(212, 175, 55, 0.1);
-            border-color: rgba(212, 175, 55, 0.8);
-            transform: translate(-35px, -35px);
-        }
-        .custom-cursor-hover .custom-cursor-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #D4AF37;
+            body, a, button, .swiper-slide, input, textarea { cursor: none !important; }
         }
         
-        /* Paspartu galerijski okvir s luksuznim unutrašnjim sjenama */
-        .gallery-frame {
-            padding: 20px;
-            background-color: #ffffff;
-            border: 1px solid rgba(44, 42, 41, 0.06);
-            box-shadow: 0 30px 70px rgba(44, 42, 41, 0.03);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .gallery-frame:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 45px 90px rgba(44, 42, 41, 0.07);
-        }
-
-        .nav-link-effect {
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        .nav-link-effect::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: #D4AF37;
-            transition: all 0.3s ease;
-        }
-        .nav-link-effect:hover::after {
-            width: 100%;
-        }
-
-        /* Premium klizač kroj */
-        .swiper { width: 100%; padding-top: 20px; padding-bottom: 40px; }
-        .swiper-slide { 
-            width: 360px; 
-            height: 490px; 
-            background-color: #ffffff;
-            padding: 16px;
-            border: 1px solid rgba(44, 42, 41, 0.05);
-            box-shadow: 0 20px 50px rgba(44, 42, 41, 0.04);
-        }
-        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        /* Swiper premium klizač */
+        .swiper { width: 100%; padding-top: 40px; padding-bottom: 80px; }
+        .swiper-slide { background-position: center; background-size: cover; width: 380px; height: 540px; border-radius: 0px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.15); }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1); }
         .swiper-slide:hover img { transform: scale(1.05); }
         
-        .swiper-pagination-bullet-active { background: #D4AF37 !important; width: 35px !important; border-radius: 0px !important; }
-        .swiper-pagination-bullet { background: #2C2A29; opacity: 0.15; border-radius: 0px !important; height: 1px !important; width: 18px !important; transition: all 0.4s ease; }
+        .swiper-pagination-bullet-active { background: #D4AF37 !important; width: 40px !important; border-radius: 0px !important; }
+        .swiper-pagination-bullet { background: #ffffff; opacity: 0.2; border-radius: 0px !important; height: 1px !important; width: 20px !important; transition: all 0.4s ease; }
 
-        /* ZABRANA SELEKCIJE I PREUZIMANJA NA RAZINI KODA */
-        img {
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -o-user-select: none;
-            user-select: none;
-            pointer-events: none;
+        /* Pozadina bez img/ mape */
+        .hero-bg { 
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.98)), url('hero.jpg'); 
+            background-size: cover; 
+            background-position: center; 
         }
     </style>
 </head>
-<body class="antialiased selection:bg-[#F4EFE6] selection:text-[#2C2A29]" oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
+<body class="bg-black text-stone-300 antialiased selection:bg-stone-800 selection:text-gold">
 
-    <!-- ELEMENTI ZA CUSTOM KURSOR -->
-    <div id="cursor-dot" class="custom-cursor-dot hidden lg:block"></div>
-    <div id="cursor-aura" class="custom-cursor-aura hidden lg:block"></div>
+    <!-- LUKSUZNI CUSTOM CURSOR -->
+    <div id="custom-cursor" class="hidden lg:block fixed top-0 left-0 w-2 h-2 bg-[#D4AF37] rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-700 ease-out"></div>
+    <div id="custom-cursor-dot" class="hidden lg:block fixed top-0 left-0 w-8 h-8 border border-[#D4AF37]/30 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out"></div>
 
-    <!-- NAVBAR (Potpuno pročišćen i minimalistički) -->
-    <nav class="fixed w-full z-50 bg-[#FDFBF7]/80 backdrop-blur-xl border-b border-stone-200/30 flex justify-end items-center py-5 px-6 md:px-16 duration-300">
-        <div class="space-x-8 flex items-center text-[10px] uppercase tracking-[0.25em] font-medium">
-            <a href="#pocetna" class="nav-link-effect text-stone-600 hover:text-[#D4AF37] cursor-pointer-target">Početna</a>
-            <a href="#priča" class="nav-link-effect text-stone-600 hover:text-[#D4AF37] cursor-pointer-target">Umjetnica</a>
-            <a href="#svjetlost" class="nav-link-effect text-stone-600 hover:text-[#D4AF37] cursor-pointer-target">Fokus</a>
-            <a href="#galerija" class="nav-link-effect text-stone-600 hover:text-[#D4AF37] cursor-pointer-target">Kolekcija</a>
-            <a href="#kontakt" class="nav-link-effect text-stone-600 hover:text-[#D4AF37] cursor-pointer-target">Kontakt</a>
+    <!-- ARISTOKRATSKO ZAGLAVLJE S LOGOTIPOM -->
+    <nav class="fixed w-full z-50 bg-black/95 backdrop-blur-2xl border-b border-gold flex justify-between items-center py-4 px-6 md:px-16">
+        <a href="#pocetna" class="flex items-center gap-4 group">
+            <img src="RoyalLogo.jpg" alt="Royal Rides" class="h-14 w-auto object-contain brightness-100 invert-0">
+            <div class="flex flex-col tracking-widest uppercase hidden sm:block">
+                <div class="text-sm font-medium tracking-[0.2em] text-white">ROYAL RIDES</div>
+                <div class="text-[8px] text-gold tracking-[0.4em] mt-0.5">HRVATSKA</div>
+            </div>
+        </a>
+        
+        <div class="space-x-8 hidden lg:flex items-center font-light text-xs uppercase tracking-[0.2em]">
+            <a href="#pocetna" class="text-stone-400 hover:text-gold transition-colors duration-300">Početna</a>
+            <a href="#o-nama" class="text-stone-400 hover:text-gold transition-colors duration-300">O nama</a>
+            <a href="#bastina" class="text-stone-400 hover:text-gold transition-colors duration-300">Priča o Baštini</a>
+            <a href="#flota" class="text-stone-400 hover:text-gold transition-colors duration-300">Kolekcija</a>
+            <a href="#vucna" class="text-stone-400 hover:text-gold transition-colors duration-300">Vučna Služba</a>
+            <a href="#kontakt" class="text-stone-400 hover:text-gold transition-colors duration-300">Kontakt</a>
+            <a href="tel:+385976672244" class="border border-gold px-5 py-2.5 text-gold hover:bg-gold hover:text-black transition-all duration-300 font-medium tracking-[0.15em]">0-24 Asistencija</a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <section id="pocetna" class="pt-32 pb-20 md:pt-40 md:pb-28 bg-[#FDFBF7] px-6 md:px-16 border-b border-stone-200/20">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div class="lg:col-span-7 space-y-8" data-aos="fade-up" data-aos-duration="1200">
-                <!-- Tvoj vrhunski masivni logo u Hero sekciji -->
-                <div class="inline-block cursor-pointer-target -ml-4 md:-ml-6 select-none">
-                    <img src="logo.png" class="h-36 md:h-44 w-auto object-contain transition-transform duration-300 hover:scale-[1.02]" alt="Galerija ArtS Veliki Logo">
-                </div>
+    <section id="pocetna" class="h-screen flex items-center justify-center text-center hero-bg px-4">
+        <div class="max-w-5xl" data-aos="fade-up" data-aos-duration="1500">
+            <span class="text-gold uppercase tracking-[0.4em] font-light text-xs block mb-6">CHAUFFEUR SERVICE &bull; PRIVATE FLOTA &bull; ČAKOVEC</span>
+            <h1 class="text-4xl md:text-7xl font-medium text-white mb-8 leading-tight uppercase">
+                Kraljevski Tretman<br>
+                <span class="font-light italic text-gold font-bodoni lowercase">na vašim cestama.</span>
+            </h1>
+            <div class="h-[1px] w-20 bg-gold/30 mx-auto mb-8"></div>
+            <p class="text-stone-400 text-xs md:text-sm font-light mb-12 max-w-2xl mx-auto leading-relaxed uppercase tracking-[0.15em]">
+                Ekskluzivni najam muzejskih primjeraka Rolls-Royce i Bentley vozila s vozačem u Hrvatskoj.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center font-light text-xs uppercase tracking-[0.2em]">
+                <a href="#flota" class="w-full sm:w-auto bg-gold text-black px-10 py-4 font-semibold hover:bg-white transition-colors duration-300">
+                    Istražite Kolekciju
+                </a>
+                <a href="#vucna" class="w-full sm:w-auto border border-stone-800 px-10 py-4 hover:border-gold hover:text-gold transition-all duration-300 text-stone-400">
+                    Hitna Vučna Služba
+                </a>
+            </div>
+        </div>
+    </section>
 
-                <div class="space-y-4">
-                    <span class="text-[#D4AF37] uppercase tracking-[0.4em] font-semibold text-[10px] block">ŠUMSKI ATELJE &bull; PLANINA ROMANIJA</span>
-                    <h1 class="text-4xl md:text-5xl font-normal text-[#2C2A29] leading-[1.2] tracking-tight">
-                        Gdje snovi i priroda<br>
-                        <span class="font-normal italic text-stone-400 font-serif-art lowercase">postaju platno.</span>
-                    </h1>
+    <!-- SEKCIJA: O NAMA -->
+    <section id="o-nama" class="py-40 bg-zinc-950 px-6 md:px-16 border-t border-stone-900 overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+            <div class="lg:w-1/2" data-aos="fade-right" data-aos-duration="1200">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs block mb-4">Filozofija Izvrsnosti</span>
+                <h2 class="text-3xl md:text-5xl font-medium text-white mb-8 uppercase">Stvoreni Za Vaše<br><span class="italic text-gold font-bodoni lowercase">najljepše uspomene</span></h2>
+                <div class="h-[1px] w-12 bg-gold/50 mb-8"></div>
+                <p class="text-stone-400 text-sm leading-relaxed mb-6 font-light">U Royal Ridesu ne iznajmljujemo samo automobile; mi stvaramo ambijent, jedinstven stil i neprocjenjive uspomene koje traju vječno. Smješteni u Čakovcu, prepoznali smo potrebu za uvođenjem istinske, beskompromisne ekskluzive na području cijele Hrvatske.</p>
+                <p class="text-stone-400 text-sm leading-relaxed font-light">Bilo da se radi o ulasku u bračne vode ispred dvorca Zrinskih, proslavi maturalne večeri, privatnim svečanostima ili diskretnom poslovnom prijevozu VIP osoba, naša misija je pružiti razinu usluge koja nadilazi uobičajena očekivanja.</p>
+            </div>
+            <div class="lg:w-1/2 flex items-center justify-center relative w-full h-[450px]" data-aos="fade-left" data-aos-duration="1200">
+                <div class="absolute w-2/3 h-72 left-0 top-0 border border-gold p-2 bg-black">
+                    <img src="auto-1.jpg" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-2/3 h-72 right-0 bottom-0 border border-gold p-2 bg-black z-10">
+                    <img src="bentley-1.jpg" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NAKLON OD SRCA: ORIGINALNI KLIJENTIČIN TEKST KAO IZNENAĐENJE -->
+    <section id="bastina" class="py-40 bg-black px-6 md:px-16 border-t border-stone-900 relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[24rem] text-zinc-900/10 font-serif pointer-events-none select-none font-bodoni">“</div>
+        <div class="max-w-4xl mx-auto text-center relative z-10" data-aos="fade-up" data-aos-duration="1400">
+            <span class="text-gold uppercase tracking-[0.4em] text-xs block mb-6">Svjedočanstvo Vremena</span>
+            <h2 class="text-2xl md:text-4xl font-medium text-white uppercase mb-16 font-cinzel">Priča Koja Živi Kroz Našu Flotu</h2>
+            
+            <div class="space-y-8 text-stone-300 font-light text-base md:text-lg leading-relaxed max-w-3xl mx-auto tracking-wide text-justify md:text-center">
+                <p>Nekoć, u neka davna vremena, kad su se ljudi cijenili, prijateljstva njegovala, a stvari se nisu bacale zbog neke zanemarive mane, već su se krpale i popravljale, gradili su se strojevi koji traju... I traju... I traju...</p>
+                <p>Upravo je naš <span class="text-gold font-medium">Rolls-Royce 20/25</span> tihi svjedok tih nekih prošlih vremena.</p>
+                <p>Proizveden davne <span class="text-gold font-medium">1932.</span>, u svojih je gotovo stotinu godina prevezao na tisuće ljudi - gorde članove plemstva, dame u najfinijim svečanim haljinama, gospodu okićenu monoklima i cilindrima te mladenke koje drhtavim rukama stežu kitice cvijeća.</p>
+                <p>Vjerno je pratio brojne mladence na njihov najsretniji dan; danas je satkan od gotovo stoljeća sjećanja, emocija, suza radosnica, ali i suza gubitka. Kažu da je nekoć prevozio i same članove britanske kraljevske obitelji, međutim to su već tajne koje ljuborno čuva i nerado otkriva.</p>
+                <p>Napravljen je za neke druge ceste; za starinske engleske puteve popločane neravnim kamenjem, kojima još odjekuje zvuk konjskih kopita i psovke nestrpljivih kočijaša. Ali eto ga u malom Međimurju - sada vozi desnom stranom ceste, po malo ljepšim i ravnijim putevima. Bilo kako bilo, efekt je još uvijek isti - svatko tko u njega sjedne, osjeća se kao kralj, kraljica ili princeza - pa makar samo na jedan dan.</p>
+            </div>
+            
+            <div class="h-[1px] w-20 bg-gold/30 mx-auto mt-14 mb-8"></div>
+            <p class="text-gold uppercase tracking-[0.25em] text-xs font-medium font-cinzel">
+                Rolls-Royce je dostupan za najam za vjenčanja, svečanosti, evente i snimanja.
+            </p>
+        </div>
+    </section>
+
+    <!-- SEKCIJA: FLOTA -->
+    <section id="flota" class="py-40 bg-zinc-950 px-6 md:px-16 border-t border-stone-900">
+        <div class="max-w-6xl mx-auto">
+            
+            <div class="text-center mb-28" data-aos="fade-up">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs block mb-4">Privatna Selekcija</span>
+                <h2 class="text-3xl md:text-5xl font-medium text-white uppercase">Kolekcija Royal Rides</h2>
+                <div class="h-[1px] w-12 bg-gold/50 mx-auto mt-6"></div>
+            </div>
+
+            <!-- GALERIJA 1: Rolls-Royce 20/25 Kabriolet (1932.) -->
+            <div class="mb-32" data-aos="fade-up" data-aos-duration="1200">
+                <div class="border-l border-gold pl-5 mb-10">
+                    <h3 class="text-2xl md:text-3xl font-medium text-white uppercase tracking-wider font-cinzel">Rolls-Royce 20/25 Kabriolet (1932.)</h3>
+                    <p class="text-gold font-serif italic text-sm mt-1 font-bodoni">Ekskluzivna Thrupp & Maberly izvedba &bull; Jedini preostali primjerak na svijetu</p>
                 </div>
                 
-                <p class="text-stone-500 text-sm font-light max-w-lg leading-relaxed tracking-wide">
-                    Službeni portfolio i digitalni arhiv akademske slikarice Nataše Stević. Autentična umjetnost stvorena u tišini planinskih prostranstava.
+                <div class="swiper luksuzniSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide relative">
+                            <img src="auto-1.jpg" alt="Rolls-Royce 20/25 Kabriolet">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Kraljevski Kabriolet</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Jedan od tek 5 proizvedenih u povijesti. Vrhunac britanske ručne izrade s otvorenim krovom za glamurozne proslave.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="auto-2.jpg" alt="Vintage kovčeg s baršunom">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Detalji Baštine</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Originalni prtljažni kožni kovčeg s unutrašnjosti od raskošnog crvenog baršuna – autentičan komad povijesti.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="auto-3.jpg" alt="Rolls-Royce Prednji dio">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Monumentalno Čelo</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Prepoznatljiva kromirana maska hladnjaka s povijesnim Čakovečkim registarskim oznakama (ČK PV-1931).</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="auto-4.jpg" alt="Rolls-Royce Unutrašnjost">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Orahovo Drvo i Koža</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Besprijekorno očuvana unutrašnjost s velikim vintage četverokrakim upravljačem i ručno poliranim drvom.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="auto-5.jpg" alt="Rolls-Royce Stražnja strana">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Bezvremenska Silueta</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Pogled sa stražnje strane naglašava elegantnu liniju spuštenog krova ovog jedinstvenog Thrupp & Maberly remek-djela.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="auto-6.jpg" alt="Kristalna vaza u autu">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Kristalni Salon</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Originalna kristalna vaza za cvijeće integrirana u kabinu – detalj krojen za vjenčanja iz bajke.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="auto-7.jpg" alt="Spirit of Ecstasy">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Spirit of Ecstasy</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Legendarna statua na vrhu haube, simbol apsolutnog prestiža, luksuza i stogodišnje britanske tradicije.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="auto-8.jpg" alt="Rolls-Royce u prirodi">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Pokretni Muzej</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Puni sjaj luksuza i povijesti pod vedrim nebom. Kraljevski tretman dostupan na cestama Međimurja.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="auto-9.jpg" alt="Luksuzni oslonci za noge">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">VIP Komfor</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Preklopni drveni oslonci za noge presvučeni baršunom pružaju vrhunsku udobnost mladencima.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <!-- GALERIJA 2: Rolls-Royce 20/25 Limousine (1933.) -->
+            <div class="mb-32" data-aos="fade-up" data-aos-duration="1200">
+                <div class="border-l border-gold pl-5 mb-10">
+                    <h3 class="text-2xl md:text-3xl font-medium text-white uppercase tracking-wider font-cinzel">Rolls-Royce 20/25 Limousine (1933.)</h3>
+                    <p class="text-gold font-serif italic text-sm mt-1 font-bodoni">Ekskluzivna salonska izvedba &bull; Snimljeno ispred Starog grada Zrinskih u Čakovcu</p>
+                </div>
+                
+                <div class="swiper luksuzniSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide relative">
+                            <img src="rolls-1.jpg" alt="Rolls-Royce ispred dvorca">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Gospodski Šarm</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Prekrasna salonska izvedba u bež-crnoj boji, savršeno usklađena s arhitekturom čakovečkog dvorca Zrinskih.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="rolls-2.jpg" alt="Prednja maska hladnjaka">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Derby Klasik</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Kultni uspravni hladnjak s povijesnim tablicama (ČK PV-1933) i velikim kromiranim svjetlima koja plijene poglede.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="rolls-3.jpg" alt="Bež kožna sjedala">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Kraljevska Loža</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Prostrana i luksuzna putnička kabina s mekanim bež sjedalima, stvorena za maksimalnu udobnost VIP gostiju i mladenaca.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="rolls-4.jpg" alt="Zatvoreni prtljažnik">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Savršena Simetrija</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Stražnji profil limuzine s originalnim crnim kovčegom, fotografiran u samom srcu povijesnog kompleksa u Čakovcu.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="rolls-5.jpg" alt="Pločica Rolls-Royce London & Derby">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Apsolutna Autentičnost</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Originalna tvornička pločica "Rolls-Royce London & Derby" unutar motora, pečat vrhunske muzejske i povijesne vrijednosti.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="rolls-6.jpg" alt="Upravljač limuzine">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Pogled Kroz Vrijeme</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Masivni vintage upravljač s kontrolama paljenja na sredini, očuvan u izvornom stanju iz tridesetih godina.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="rolls-7.jpg" alt="Bočna silueta">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Predsjednički Stil</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Čiste linije, rezervni kotač na boku i kromirani pragovi čine ovaj automobil savršenom skulpturom na četiri kotača.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <!-- GALERIJA 3: Bentley Mark VI (1951.) -->
+            <div class="mb-32" data-aos="fade-up" data-aos-duration="1200">
+                <div class="border-l border-gold pl-5 mb-10">
+                    <h3 class="text-2xl md:text-3xl font-medium text-white uppercase tracking-wider font-cinzel">Bentley Mark VI (1951.)</h3>
+                    <p class="text-gold font-serif italic text-sm mt-1 font-bodoni">Kraljevska britanska aristokracija &bull; Impresivan kontrast luksuza i industrijskog dizajna</p>
+                </div>
+                
+                <div class="swiper luksuzniSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide relative">
+                            <img src="bentley-1.jpg" alt="Bentley Mark VI u industrijskom ambijentu">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Robusna Elegancija</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Bezgranični britanski šarm sivo-crne karoserije, fotografiran u sirovom, industrijskom kontrastu povijesne arhitekture.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="bentley-2.jpg" alt="Bentley maska i logotip s krilima">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Krilata Ikona</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Jedinstvena, ručno polirana skulptura legendarnog Bentley slova 'B' s krilima koja ponosno krasi masivni kromirani hladnjak.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="bentley-3.jpg" alt="Bentley Mark VI raskošna unutrašnjost">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Aristokratski Salon</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Unutrašnjost krojena po narudžni britanskog plemstva – debela bež kožna sjedala pružaju neusporediv komfor tijekom vožnje.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="bentley-4.jpg" alt="Bentley originalni upravljač i drvo">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Miris Orahovine</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Pogled s vozačkog mjesta na masivni trokraki upravljač i unikatnu instrumentalnu ploču od vrhunskog, lakiranog korijena oraha.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="bentley-5.jpg" alt="Bentley Mark VI frontalni kadar">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Monumentalni Stav</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Prepoznatljiva silueta i velika okrugla svjetla s povijesnim Čakovečkim registarskim oznakama (ČK PV-1951) koja plijene poglede.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide relative">
+                            <img src="bentley-6.jpg" alt="Bentley Mark VI bočna silueta">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Bezvremenski Profil</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Savršeno izbalansirane sportske linije Saloon izvedbe iz pedesetih, stvorene za klijente koji traže apsolutnu ekskluzivu.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <!-- GALERIJA 4: Lincoln Town Car Limousine - PROŠIRENA S 3 NOVE FOTKE UNUTRAŠNJOSTI -->
+            <div data-aos="fade-up" data-aos-duration="1200">
+                <div class="border-l border-gold pl-5 mb-10">
+                    <h3 class="text-2xl md:text-3xl font-medium text-white uppercase tracking-wider font-cinzel">Lincoln Town Car Limousine</h3>
+                    <p class="text-gold font-serif italic text-sm mt-1 font-bodoni">Američki glamur na našim cestama &bull; Ekskluzivni neonski VIP salon za proslave</p>
+                </div>
+
+                <div class="swiper luksuzniSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slajd 1 -->
+                        <div class="swiper-slide relative">
+                            <img src="limuzina-1.jpg" alt="Lincoln Limuzina u prirodi">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">VIP Salon na Kotačima</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Raskošna, dugačka bijela limuzina s vrhunskim komforom. Savršen izbor za rođendane, mature i glamurozne izlaske.</p>
+                            </div>
+                        </div>
+                        <!-- Slajd 2 -->
+                        <div class="swiper-slide relative">
+                            <img src="limuzina-2.jpg" alt="Lincoln Limuzina zalazak sunca">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Ekskluzivno Iskustvo</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Zabava započinje u samom vozilu uz vrhunski ambijentalni audio i svjetlosni sustav skrojen po vašoj mjeri.</p>
+                            </div>
+                        </div>
+                        <!-- Slajd 3 -->
+                        <div class="swiper-slide relative">
+                            <img src="limuzina-3.jpg" alt="Lincoln limuzina u Međimurju">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Holivudski Stil</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Upečatljiv i luksuzan izgled privlači sve poglede na ulicama Čakovca i cijelog Međimurja (ČK 551-LE).</p>
+                            </div>
+                        </div>
+                        <!-- Slajd 4 -->
+                        <div class="swiper-slide relative">
+                            <img src="limuzina-4.jpg" alt="Lincoln Limuzina bočni profil">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Besprijekorna Prostranost</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Puna dužina američke ikone stvorena za nezaboravne momačke i djevojačke večeri s vašim najužim krugom prijatelja.</p>
+                            </div>
+                        </div>
+                        <!-- NOVI Slajd 5 (Fotka unutrašnjosti 1) -->
+                        <div class="swiper-slide relative">
+                            <img src="limuzina-5.jpg" alt="Lincoln Limuzina neonska unutrašnjost">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Noćni Glamur</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Prostrana unutrašnjost okupana klupskim plavim i ljubičastim neonskim svjetlima, s vrhunskim kožnim sjedalima za puni VIP ugođaj.</p>
+                            </div>
+                        </div>
+                        <!-- NOVI Slajd 6 (Fotka unutrašnjosti 2) -->
+                        <div class="swiper-slide relative">
+                            <img src="limuzina-6.jpg" alt="Lincoln Limuzina ugrađeni bar">
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Privatni Cocktail Bar</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Luksuzno osvijetljeni šank s ugrađenim multimedijskim LCD ekranima, kristalnim čašama i vrhunskim ambijentom za proslave.</p>
+                            </div>
+                        </div>
+                        <!-- NOVI Slajd 7 (Fotka unutrašnjosti 3) -->
+                        <div class="swiper-slide relative">
+                            <div class="w-full h-full bg-center bg-cover" style="background-image: url('limuzina-7.jpg');"></div>
+                            <div class="absolute bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent w-full p-8 border-t border-[#D4AF37]/10">
+                                <h4 class="font-serif italic text-xl text-[#D4AF37] font-bodoni">Zdravica u Pokretu</h4>
+                                <p class="text-[10px] text-stone-400 mt-2 font-light leading-relaxed tracking-wide">Pomno dizajnirani detalji, stalci za šampanjac i žestoka pića pod neonskim sjajem, stvoreni za nezaboravan početak vaše večeri.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TEKST II & III: KRALJEVSKI STANDARD -->
+    <section id="standard" class="py-40 bg-black px-6 md:px-16 border-t border-stone-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-24" data-aos="fade-up">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs block mb-4">Znak Razlike</span>
+                <h2 class="text-3xl md:text-5xl font-medium text-white uppercase">Besprijekoran Standard Usluge</h2>
+                <div class="h-[1px] w-12 bg-gold/50 mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="border border-gold/10 p-10 bg-zinc-950 text-center md:text-left" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-gold font-serif italic text-3xl mb-6 font-bodoni">I</div>
+                    <h3 class="text-xl font-medium text-white mb-4 uppercase tracking-wide">Zakletva Naših Vozača</h3>
+                    <p class="text-stone-400 text-xs font-light leading-relaxed tracking-wide">Naš vozač nije samo osoba za upravljačem. On je vaš diskretni domaćin i jamac sigurnosti. Svaki chauffeur prolazi strogi protokol ponašanja, uvijek je u besprijekorno krojenom odijelu, odlikuje se apsolutnom diskrecijom i obučen je prepoznati vaše potrebe.</p>
+                </div>
+                <div class="border border-gold/10 p-10 bg-zinc-950 text-center md:text-left" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-gold font-serif italic text-3xl mb-6 font-bodoni">II</div>
+                    <h3 class="text-xl font-medium text-white mb-4 uppercase tracking-wide">Kristal i Pjenušac</h3>
+                    <p class="text-stone-400 text-xs font-light leading-relaxed tracking-wide">Svako putovanje mladenaca otvaramo bocom vrhunskog, savršeno rashlađenog šampanjca kako biste dostojanstveno proslavili prve trenutke braka. Pjenušac se poslužuje u kristalnim čašama, a naš vozač će se pobrinuti za svečani doček.</p>
+                </div>
+                <div class="border border-gold/10 p-10 bg-zinc-950 text-center md:text-left" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-gold font-serif italic text-3xl mb-6 font-bodoni">III</div>
+                    <h3 class="text-xl font-medium text-white mb-4 uppercase tracking-wide">Iskustvo Po Mjeri</h3>
+                    <p class="text-stone-400 text-xs font-light leading-relaxed tracking-wide">Svjesni smo da ne postoje dva ista vjenčanja ili događaja. Zato svakom klijentu pristupamo individualno. Surađujemo s najboljim cvjećarnicama kako bismo aranžirali vozilo svježim cvijećem koje savršeno odgovara temi vaše svečanosti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROŠIRENA SEKCIJA: VUČNA SLUŽBA -->
+    <section id="vucna" class="py-40 bg-zinc-950 px-6 md:px-16 border-t border-stone-900">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-20">
+            <div class="lg:w-1/2" data-aos="fade-right" data-aos-duration="1200">
+                <span class="text-gold uppercase tracking-[0.3em] text-xs block mb-4">Tehnička Asistencija 0-24h</span>
+                <h2 class="text-3xl md:text-5xl font-medium text-white mb-8 uppercase">Elitna Vučna Služba<br><span class="italic text-gold font-bodoni lowercase">i pomoć na cesti</span></h2>
+                <div class="h-[1px] w-12 bg-gold/50 mb-8"></div>
+                <p class="text-stone-400 text-sm font-light leading-relaxed mb-6">Dok su luksuz i stil naša strast, sigurnost i mobilnost na cestama naša su primarna dužnost. U slučaju nepredviđenih kvarova, nezgoda ili potrebe za transportom, Royal Rides Hrvatska reagira bez odlaganja. Pružamo profesionalnu uslugu prijevoza svih vrsta motornih vozila na području Čakovca, Međimurja i cijele države.</p>
+                <p class="text-stone-400 text-sm font-light leading-relaxed mb-8">Naš službeni, potpuno brendirani Renault Master kamion opremljen je najsuvremenijom opremom i niskoprofilnom platformom. Jamčimo maksimalno siguran utovar i pažljiv transport bez ikakvih dodatnih oštećenja na vašem vozilu.</p>
+                
+                <div class="border border-gold p-6 inline-flex flex-col sm:flex-row items-center gap-6 bg-stone-950">
+                    <div class="flex flex-col">
+                        <span class="text-stone-500 text-[9px] uppercase tracking-[0.2em] mb-1">Dežurna Služba (Uvijek Otvoreno):</span>
+                        <span class="text-gold text-xs font-semibold uppercase tracking-wider">0-24 Sata / 7 Dana u Tjednu</span>
+                    </div>
+                    <a href="tel:+385976672244" class="text-2xl font-light tracking-widest text-gold hover:text-white transition-colors">097 667 2244</a>
+                </div>
+            </div>
+            
+            <!-- Klizna dvostruka galerija za Vučnu Službu -->
+            <div class="lg:w-1/2 w-full border border-gold/20 p-2 bg-black" data-aos="fade-left" data-aos-duration="1200">
+                <div class="swiper vucnaSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slajd 1: Kamion -->
+                        <div class="swiper-slide h-[440px] w-full relative">
+                            <img src="vucna.jpg" class="w-full h-full object-cover" alt="Royal Rides Kamion">
+                            <div class="absolute bottom-0 bg-black/90 w-full p-4 text-center border-t border-stone-900">
+                                <p class="text-[10px] uppercase tracking-widest text-gold font-medium">Službeno vozilo za pomoć na cesti: M: 097 638 8527</p>
+                            </div>
+                        </div>
+                        <!-- Slajd 2: Rad na terenu -->
+                        <div class="swiper-slide h-[440px] w-full relative">
+                            <img src="vucna1.jpg" class="w-full h-full object-cover" alt="Vučna Služba Intervencija">
+                            <div class="absolute bottom-0 bg-black/90 w-full p-4 text-center border-t border-stone-900">
+                                <p class="text-[10px] uppercase tracking-widest text-gold font-medium">Brza i sigurna cestovna asistencija u Međimurju</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEKCIJA: KONTAKT I PODACI -->
+    <section id="kontakt" class="py-40 bg-black px-6 md:px-16 border-t border-stone-900">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
+            
+            <div class="space-y-12" data-aos="fade-right" data-aos-duration="1200">
+                <div>
+                    <span class="text-gold uppercase tracking-[0.3em] text-xs block mb-4">Centralni Ured</span>
+                    <h2 class="text-3xl md:text-5xl font-medium text-white uppercase">Stupite U Kontakt</h2>
+                    <div class="h-[1px] w-12 bg-gold/50 mt-6"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 font-light text-xs uppercase tracking-[0.15em] text-stone-400">
+                    <div>
+                        <p class="text-[9px] text-stone-500 mb-2">Adresa Sjedišta</p>
+                        <p class="text-stone-200 normal-case tracking-normal">Mihovljanska 37,<br>40000 Čakovec, Hrvatska</p>
+                    </div>
+                    <div>
+                        <p class="text-[9px] text-stone-500 mb-2">Radno Vrijeme</p>
+                        <p class="text-gold font-medium text-[11px]">Uvijek otvoreno<br>(0-24h / 7 dana)</p>
+                    </div>
+                    <div>
+                        <p class="text-[9px] text-stone-500 mb-2">E-pošta</p>
+                        <a href="mailto:royalrides.hr@gmail.com" class="text-stone-200 hover:text-gold transition-colors normal-case tracking-normal">royalrides.hr@gmail.com</a>
+                    </div>
+                    <div>
+                        <p class="text-[9px] text-stone-500 mb-2">Instagram</p>
+                        <a href="https://instagram.com/royalrideshr" target="_blank" class="text-stone-200 hover:text-gold transition-colors normal-case tracking-normal font-medium">@royalrideshr</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Private Concierge upit -->
+            <div class="relative border border-[#D4AF37]/30 p-10 md:p-14 bg-gradient-to-b from-zinc-900 to-black shadow-[0_0_50px_rgba(212,175,55,0.03)] flex flex-col justify-center group" data-aos="fade-left" data-aos-duration="1200">
+                <div class="absolute top-0 right-0 w-16 h-[1px] bg-gradient-to-l from-[#D4AF37] to-transparent"></div>
+                <div class="absolute top-0 right-0 h-16 w-[1px] bg-gradient-to-b from-[#D4AF37] to-transparent"></div>
+                
+                <span class="text-[#D4AF37] uppercase tracking-[0.4em] text-[10px] font-semibold block mb-2">Ekskluzivna Rezervacija</span>
+                <h3 class="text-3xl font-light text-white mb-6 uppercase tracking-wider font-cinzel">Private Concierge</h3>
+                <p class="text-stone-400 text-xs font-light mb-10 leading-relaxed tracking-wide">
+                    Zahtjeve za najam luksuznih oldtimera, produženih limuzina ili hitne intervencije vučne službe zaprimamo direktno putem 24/7 telefonske linije ili brze WhatsApp komunikacije. Prepustite organizaciju našem timu.
                 </p>
-                <div class="pt-2">
-                    <a href="#galerija" class="inline-block border-b border-[#2C2A29] pb-2 text-xs font-medium uppercase tracking-[0.2em] text-[#2C2A29] hover:text-[#D4AF37] hover:border-[#D4AF37] transition-colors duration-300 cursor-pointer-target">
-                        Otvori izložbu <i class="fas fa-chevron-right ml-2 text-[9px]"></i>
+                
+                <div class="flex flex-col sm:flex-row gap-4 font-light text-xs uppercase tracking-[0.2em]">
+                    <a href="tel:+385976672244" class="w-full bg-[#D4AF37] text-black py-4 px-6 text-center font-bold tracking-widest hover:bg-white hover:shadow-[0_0_30px_rgba(215,175,55,0.3)] transition-all duration-300 flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .3l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.3-1.1-.5-2.3-.5-3.5 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/></svg>
+                        Izravan Poziv
+                    </a>
+                    
+                    <a href="https://wa.me/385976672244" target="_blank" class="w-full border border-stone-800 text-stone-300 bg-zinc-950/50 py-4 px-6 text-center font-semibold hover:border-[#D4AF37] hover:text-[#D4AF37] hover:bg-zinc-900 transition-all duration-300 flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.053 5.232 5.311 0 11.779 0c3.134.001 6.078 1.22 8.29 3.433 2.212 2.214 3.43 5.159 3.43 8.293-.005 6.544-5.263 11.777-11.734 11.777-2.006-.002-3.978-.517-5.714-1.493L0 24zm6.471-2.52c1.573.934 3.451 1.428 5.358 1.429 5.419 0 9.825-4.382 9.829-9.771.002-2.611-1.015-5.066-2.866-6.92-1.851-1.852-4.31-2.87-6.924-2.87-5.424 0-9.83 4.384-9.834 9.773-.002 1.995.521 3.945 1.517 5.673l-.993 3.626 3.713-.97z"/></svg>
+                        WhatsApp Chat
                     </a>
                 </div>
             </div>
-            
-            <div class="lg:col-span-5 w-full flex justify-end" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                <div class="gallery-frame w-full max-w-[340px] shadow-lg relative">
-                    <img src="slika5.jpg" class="w-full h-[380px] object-cover grayscale-[10%] hover:grayscale-0 transition-all duration-700" alt="ArtS Teaser">
-                    <div class="absolute inset-0 z-10 transparent-shield"></div>
-                </div>
-            </div>
 
-        </div>
-    </section>
-
-    <!-- SEKCIJA: PRIČA S ROMANIJE -->
-    <section id="priča" class="py-24 md:py-36 bg-[#FDFBF7] px-6 md:px-16 overflow-hidden">
-        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16 md:gap-24">
-            <div class="lg:w-1/2 space-y-6" data-aos="fade-right" data-aos-duration="1200">
-                <span class="text-[#D4AF37] uppercase tracking-[0.3em] text-[10px] font-semibold block">Koncept i vizija</span>
-                <h2 class="text-3xl md:text-4xl font-normal text-[#2C2A29] leading-tight">Povratak prirodi i<br><span class="italic text-stone-400 font-serif-art lowercase">slobodi stvaranja</span></h2>
-                <div class="h-[1px] w-12 bg-[#D4AF37]/40"></div>
-                <div class="space-y-5 text-stone-500 text-sm font-light leading-relaxed tracking-wide">
-                    <p>Nataša Stević je akademska slikarica i ilustratorica koja je gradsku vrevu zamijenila tišinom, mirom i nepresušnom inspiracijom čarobne planine Romanije.</p>
-                    <p>U svom ručno stvorenom šumskom ateljeu, daleko od užurbanog ritma modernog društva, ona oživljava neotkrivene svjetove kroz ilustracije knjiga, radove na platnu i monumentalne murale koji krase javne prostore.</p>
-                </div>
-            </div>
-            <div class="lg:w-1/2 w-full flex items-center justify-center" data-aos="fade-left" data-aos-duration="1200">
-                <div class="gallery-frame w-full max-w-[440px] cursor-pointer-target relative">
-                    <img src="natasa6.jpg" class="w-full h-auto object-cover transition-all duration-700" alt="Nataša Stević u svom ateljeu">
-                    <div class="absolute inset-0 z-10 transparent-shield"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- POSEBNA CENTRALNA SEKCIJA -->
-    <section id="svjetlost" class="py-24 md:py-36 bg-white px-6 md:px-16 border-t border-b border-stone-200/30 relative overflow-hidden">
-        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row-reverse items-center gap-16 md:gap-24">
-            
-            <div class="lg:w-1/2 space-y-6" data-aos="fade-left" data-aos-duration="1200">
-                <span class="text-[#D4AF37] uppercase tracking-[0.3em] text-[10px] font-semibold block"><i class="fas fa-star mr-1"></i> Intimni kutak</span>
-                <h2 class="text-3xl md:text-4xl font-normal text-[#2C2A29] leading-tight font-serif-art">Slika koju nikada<br><span class="italic text-stone-400 lowercase">neću prodati</span></h2>
-                <div class="h-[1px] w-12 bg-[#D4AF37]/40"></div>
-                
-                <div class="relative bg-[#FDFBF7] p-8 border-l border-[#D4AF37] shadow-sm italic text-stone-600 font-serif-art text-base md:text-lg leading-relaxed">
-                    "Ove godine mi je bila vodilja, ne izazov, već na neki način znak nade, tako da će ostati na našem zidu i krasiti našu galeriju svojom lijepom energijom."
-                    <p class="text-right text-xs font-sans uppercase tracking-widest font-semibold text-[#D4AF37] not-italic mt-3">— Nataša Stević</p>
-                </div>
-                
-                <p class="text-stone-500 text-sm font-light leading-relaxed tracking-wide">
-                    Postoje radovi koji nadilaze samu umjetnost i postaju osobni svjetionici. Za autoricu, ovo platno predstavlja čistu materijalizaciju unutarnje svjetlosti i nade.
-                </p>
-            </div>
-            
-            <div class="lg:w-1/2 w-full flex justify-center" data-aos="fade-right" data-aos-duration="1200">
-                <div class="gallery-frame w-full max-w-[420px] bg-white shadow-xl cursor-pointer-target relative">
-                    <img src="slika10.jpg" class="w-full h-auto object-cover transition-all duration-700" alt="Naslikala sam svjetlost">
-                    <div class="absolute inset-0 z-10 bottom-16 transparent-shield"></div>
-                    <div class="text-center pt-4 text-[10px] tracking-[0.2em] uppercase text-stone-400 font-medium border-t border-stone-100 mt-4">
-                        "Naslikala sam svjetlost"
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- GLAVNA UKUPNA SEKCIJA: KOLEKCIJA S TRI SPOJENA 3D SLAJDERA -->
-    <section id="galerija" class="py-24 bg-accent-soft px-6 md:px-16 overflow-hidden border-b border-stone-200/20">
-        <div class="max-w-6xl mx-auto">
-            
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-[#D4AF37] uppercase tracking-[0.3em] text-[10px] font-semibold block mb-2">Glavni opus</span>
-                <h2 class="text-2xl md:text-4xl font-normal text-[#2C2A29] uppercase tracking-wider">Kolekcija  Arts</h2>
-                <div class="h-[1px] w-12 bg-[#D4AF37]/40 mx-auto mt-4"></div>
-            </div>
-
-            <!-- PRVI SLIJDER (slika.jpg - slika7.jpg) -->
-            <div class="swiper artSwiper1 cursor-pointer-target mb-16" data-aos="fade-up" data-aos-duration="1200">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="slika.jpg" alt="Šumska magija">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Šumska magija</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="slika1.jpg" alt="Melankolija labuda">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Melankolija labuda</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="slika2.jpg" alt="Korak kroz snove">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Korak kroz snove</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="slika3.jpg" alt="Između prošlosti i sadašnjosti">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Između prošlosti i sadašnjosti</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="slika4.jpg" alt="Sanjarenje u čamcu">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Sanjarenje u čamcu</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="slika5.jpg" alt="Zeleni baršun i ptica">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Zeleni baršun i ptica</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="slika6.jpg" alt="Inspiracija, Romanija">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Inspiracija, Romanija</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="slika7.jpg" alt="Acutus sensus">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Acutus sensus</h4></div>
-                    </div>
-                </div>
-                <div class="swiper-pagination sp1"></div>
-            </div>
-
-            <div class="w-16 h-[1px] bg-[#D4AF37]/20 mx-auto my-12" data-aos="fade-up"></div>
-
-            <!-- DRUGI SLIJDER (slika11.jpg - slika16.jpg) -->
-            <div class="swiper artSwiper2 cursor-pointer-target mb-16" data-aos="fade-up" data-aos-duration="1200">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="slika11.jpg" alt="Miris svježeg cvijeća">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Miris svježeg cvijeća</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="slika12.jpg" alt="Sloboda">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Sloboda</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="slika13.jpg" alt="Serijal: Dugi brodovi">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Serijal: Dugi brodovi</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="slika14.jpg" alt="Radila sam tigra lava, ostaje puma">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Radila sam tigra lava, ostaje puma</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="slika15.jpg" alt="Lastavica">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Lastavica</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="slika16.jpg" alt="Parfem u zraku">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Parfem u zraku</h4></div>
-                    </div>
-                </div>
-                <div class="swiper-pagination sp2"></div>
-            </div>
-
-            <div class="w-16 h-[1px] bg-[#D4AF37]/20 mx-auto my-12" data-aos="fade-up"></div>
-
-            <!-- TREĆI NOVI SLIJDER (natasa.jpg - natasa5.jpg) -->
-            <div class="swiper artSwiper3 cursor-pointer-target" data-aos="fade-up" data-aos-duration="1200">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="natasa.jpg" alt="Stvaranje i detalji I">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">U procesu stvaranja</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="natasa1.jpg" alt="Stvaranje i detalji II">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Ples na platnu</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="natasa2.jpg" alt="Stvaranje i detalji III">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Čuvar tajni</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="natasa3.jpg" alt="Stvaranje i detalji IV">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Buđenje proljeća</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="natasa4.jpg" alt="Stvaranje i detalji V">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Slijepa pravda</h4></div>
-                    </div>
-                    <div class="swiper-slide flex flex-col justify-between relative">
-                        <div class="w-full h-[390px] overflow-hidden relative">
-                            <img src="natasa5.jpg" alt="Stvaranje i detalji VI">
-                            <div class="absolute inset-0 z-10 transparent-shield"></div>
-                        </div>
-                        <div class="pt-3 text-center border-t border-stone-100"><h4 class="font-normal text-sm text-[#2C2A29] font-serif-art italic">Trenutak tišine</h4></div>
-                    </div>
-                </div>
-                <div class="swiper-pagination sp3"></div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ULTRA-MODERNA VEĆA KONTAKT SEKCIJA -->
-    <section id="kontakt" class="py-32 md:py-44 bg-[#FDFBF7] px-6 md:px-16 relative">
-        <div class="max-w-5xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-                <div class="lg:col-span-7 space-y-8" data-aos="fade-right" data-aos-duration="1200">
-                    <div class="space-y-4">
-                        <span class="text-[#D4AF37] uppercase tracking-[0.4em] text-xs font-semibold block">KREATIVNE SURADNJE</span>
-                        <h2 class="text-4xl md:text-6xl font-normal text-[#2C2A29] leading-tight tracking-tight font-serif-art">Otvorena za<br><span class="italic text-stone-400 lowercase">nove ideje.</span></h2>
-                    </div>
-                    <p class="text-stone-500 font-light text-base md:text-lg leading-relaxed tracking-wide max-w-xl">
-                        Bilo da se radi o ilustriranju knjiga, pretvaranju fasada u monumentalne murale ili stvaranju unikatnih slika po narudžbi – vaša vizija može oživjeti u šumskom ateljeu. Stupimo u kontakt.
-                    </p>
-                    <div class="pt-4 text-xs uppercase tracking-[0.25em] text-stone-400 font-medium">
-                        <p class="text-[10px] text-[#D4AF37] mb-1 uppercase tracking-[0.3em]">Atelje</p>
-                        <p class="text-stone-700 font-light normal-case tracking-wide text-base">Planina Romanija, Bosna i Hercegovina</p>
-                    </div>
-                </div>
-                <div class="lg:col-span-5 space-y-12 lg:pt-16" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                    <h3 class="text-xs uppercase tracking-[0.35em] text-stone-400 font-medium border-b border-stone-200/60 pb-3">Izravna veza s ateljeom</h3>
-                    <div class="flex flex-col space-y-8">
-                        <a href="https://www.instagram.com/_galerija.arts/" target="_blank" class="group flex flex-col cursor-pointer-target">
-                            <span class="text-3xl md:text-4xl font-light text-[#2C2A29] tracking-[0.15em] uppercase font-serif-art transition-colors duration-300 group-hover:text-[#D4AF37]">INSTAGRAM</span>
-                            <span class="text-[10px] tracking-[0.2em] text-stone-400 mt-1 uppercase font-medium">Pošaljite DM poruku</span>
-                        </a>
-                        <a href="https://www.facebook.com/hippo911art" target="_blank" class="group flex flex-col cursor-pointer-target">
-                            <span class="text-3xl md:text-4xl font-light text-[#2C2A29] tracking-[0.15em] uppercase font-serif-art transition-colors duration-300 group-hover:text-[#D4AF37]">FACEBOOK</span>
-                            <span class="text-[10px] tracking-[0.2em] text-stone-400 mt-1 uppercase font-medium">Posjetite službenu stranicu</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- LUKSUZNA PRAVNA OBAVIJEST -->
-    <section class="py-12 bg-[#F3EFEA] border-t border-stone-200/40 px-6 md:px-16 text-stone-500">
-        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-[10px] uppercase tracking-[0.2em] font-light leading-relaxed">
-            <div class="space-y-2 cursor-pointer-target" data-aos="fade-up">
-                <p class="font-semibold text-stone-700 tracking-[0.25em]"><i class="fas fa-copyright text-[#D4AF37] mr-1.5"></i> LEGAL NOTICE & COPYRIGHT</p>
-                <p class="normal-case text-stone-400 tracking-normal font-light">Sva autorska prava na umjetnička djela, tekstove, vizualne materijale i koncepte prikazane na ovoj domeni u potpunosti pripadaju autorici Nataši Stević. Nijedan dio ovog weba ne smije se reproducirati bez pisane suglasnosti.</p>
-            </div>
-            <div class="space-y-2 cursor-pointer-target" data-aos="fade-up" data-aos-delay="100">
-                <p class="font-semibold text-stone-700 tracking-[0.25em]"><i class="fas fa-shield-halved text-[#D4AF37] mr-1.5"></i> PRIVACY & GDPR PROTECTION</p>
-                <p class="normal-case text-stone-400 tracking-normal font-light">Ovaj portfolio poštuje Opću uredbu o zaštiti podataka (GDPR). Svi vaši podatci i interakcije ostaju strogo povjerljivi i koriste se isključivo za potrebe direktne komunikacije s ateljeom na Romaniji.</p>
-            </div>
-            <div class="space-y-2 cursor-pointer-target" data-aos="fade-up" data-aos-delay="200">
-                <p class="font-semibold text-stone-800 tracking-[0.25em]"><i class="fas fa-gavel text-[#D4AF37] mr-1.5"></i> KAZNENA ODGOVORNOST</p>
-                <p class="normal-case text-stone-500 tracking-normal font-light font-medium">Svaka neovlaštena zlouporaba, preuzimanje, nelegalna distribucija ili komercijalno korištenje radova s ove domene bez izričite dozvole autorice predstavlja povredu zakona te podliježe trenutnoj materijalnoj i kaznenoj odgovornosti.</p>
-            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-10 bg-[#2C2A29] text-center text-[9px] tracking-[0.25em] uppercase text-stone-500">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p>&copy; 2026 GALERIJA ARTS. SVA PRAVA PRIDRŽANA.</p>
-            <p>Poklon kreiran s <i class="fas fa-heart text-[#D4AF37] mx-0.5"></i> od: <a href="https://www.facebook.com/kezicvizuali.vg" target="_blank" class="text-[#D4AF37] hover:text-white transition-colors normal-case ml-1 cursor-pointer-target">Kezić Vizuali</a></p>
+    <footer class="py-10 bg-black border-t border-stone-900 text-center text-[10px] tracking-[0.3em] uppercase text-stone-600">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 ROYAL RIDES HRVATSKA. SVA PRAVA PRIDRŽANA.</p>
+            <p class="tracking-[0.15em] text-stone-500">
+                Dizajn i razvoj: 
+                <a href="https://www.facebook.com/kezicvizuali.vg" target="_blank" class="text-[#D4AF37] hover:text-white transition-colors duration-300 font-medium normal-case">
+                    Kezić Vizuali
+                </a>
+            </p>
         </div>
     </footer>
 
-    <!-- Swiper.js Skripta -->
+    <!-- Swiper.js Scripta -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- AOS Skripta -->
+    
+    <!-- AOS (Animate On Scroll) Skripta za animacije -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script>
-        AOS.init({ once: true, offset: 80 });
-
-        var swiper1 = new Swiper(".artSwiper1", {
-            effect: "coverflow", grabCursor: true, centeredSlides: true, slidesPerView: "auto",
-            coverflowEffect: { rotate: 3, stretch: -10, depth: 50, modifier: 1.2, slideShadows: false },
-            pagination: { el: ".sp1", clickable: true }, loop: true, autoplay: { delay: 4500, disableOnInteraction: false }
+        AOS.init({
+            once: true,
+            offset: 120
         });
 
-        var swiper2 = new Swiper(".artSwiper2", {
-            effect: "coverflow", grabCursor: true, centeredSlides: true, slidesPerView: "auto",
-            coverflowEffect: { rotate: 3, stretch: -10, depth: 50, modifier: 1.2, slideShadows: false },
-            pagination: { el: ".sp2", clickable: true }, loop: true, autoplay: { delay: 5000, disableOnInteraction: false }
+        // Slider za oldtimere i limuzine
+        var swiper = new Swiper(".luksuzniSwiper", {
+            effect: "coverflow",
+            grabCursor: false,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 0,
+                stretch: -20,
+                depth: 60,
+                modifier: 2,
+                slideShadows: false,
+            },
+            pagination: { el: ".swiper-pagination", clickable: true },
+            loop: true,
+            autoplay: { delay: 5000, disableOnInteraction: false }
         });
 
-        var swiper3 = new Swiper(".artSwiper3", {
-            effect: "coverflow", grabCursor: true, centeredSlides: true, slidesPerView: "auto",
-            coverflowEffect: { rotate: 3, stretch: -10, depth: 50, modifier: 1.2, slideShadows: false },
-            pagination: { el: ".sp3", clickable: true }, loop: true, autoplay: { delay: 5500, disableOnInteraction: false }
+        // Glatki prelazni slider za vučnu službu
+        var vucnaSwiper = new Swiper(".vucnaSwiper", {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            autoplay: { delay: 4500, disableOnInteraction: false }
         });
 
-        // KURSOR TRACER SKRIPTA
-        const dot = document.getElementById('cursor-dot');
-        const aura = document.getElementById('cursor-aura');
-        let mouseX = 0, mouseY = 0, auraX = 0, auraY = 0;
+        // LOGIKA ZA LUKSUZNI CUSTOM CURSOR
+        const cursor = document.getElementById('custom-cursor');
+        const cursorDot = document.getElementById('custom-cursor-dot');
 
-        document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; dot.style.left = mouseX + 'px'; dot.style.top = mouseY + 'px'; });
-        function animateAura() {
-            let delay = 0.12; auraX += (mouseX - auraX) * delay; auraY += (mouseY - auraY) * delay;
-            aura.style.left = auraX + 'px'; aura.style.top = auraY + 'px'; requestAnimationFrame(animateAura);
-        }
-        animateAura();
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
 
-        function setupCursorHovers() {
-            document.querySelectorAll('.cursor-pointer-target').forEach(item => {
-                item.addEventListener('mouseenter', () => document.body.classList.add('custom-cursor-hover'));
-                item.addEventListener('mouseleave', () => document.body.classList.remove('custom-cursor-hover'));
+        const interactiveElements = document.querySelectorAll('a, button, .swiper-slide');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1.6)';
+                cursorDot.style.backgroundColor = 'rgba(212, 175, 55, 0.08)';
+                cursorDot.style.borderColor = '#D4AF37';
             });
-        }
-        setupCursorHovers();
-
-        // BLOKADA ZA DESNIK KLIK I DOWNLOAD ZASTITA
-        document.addEventListener('contextmenu', function(e) { if (e.target.tagName === 'IMG' || e.target.classList.contains('transparent-shield')) e.preventDefault(); });
-        document.addEventListener('keydown', function(e) { if ((e.ctrlKey || e.metaKey) && e.keyCode === 83) e.preventDefault(); });
+            el.addEventListener('mouseleave', () => {
+                cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorDot.style.backgroundColor = 'transparent';
+                cursorDot.style.borderColor = 'rgba(212, 175, 55, 0.3)';
+            });
+        });
     </script>
 </body>
 </html>
